@@ -12,7 +12,7 @@
       <tbody>
         <tr *ngFor="let tasklist of TaskLists"  style="cursor:pointer;"> -->
           <h2 class="mb-3 text-center">Task lists</h2>
-          <app-task-list *ngFor="let tasklist of TaskLists; let i = index" [index]="i" [tasklist]="tasklist"></app-task-list>
+          <app-task-list-renderer *ngFor="let tasklist of TaskLists; let i = index" [index]="i" [tasklist]="tasklist"></app-task-list-renderer>
           <!-- <td>{{tasklist.id}}</td>
           <td>{{tasklist.Title}}</td>
           <td>{{tasklist.DateCreated | date}}</td>

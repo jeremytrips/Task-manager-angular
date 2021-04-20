@@ -8,11 +8,13 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskListViewerComponent } from './task-list-viewer/task-list-viewer.component';
+import { TaskListRendererComponent } from './task-list-renderer/task-list-renderer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskListViewerComponent
+    TaskListViewerComponent,
+    TaskListRendererComponent
   ],
   imports: [
     BrowserModule,
