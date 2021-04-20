@@ -1,0 +1,3 @@
+Update tasklist.service so that he's able to retreive task of a task list depending on the id.
+Finish the task-viewer component
+Create the taskRenderer component.
