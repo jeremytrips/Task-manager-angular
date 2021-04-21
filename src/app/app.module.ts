@@ -9,12 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskListViewerComponent } from './task-list-viewer/task-list-viewer.component';
 import { TaskListRendererComponent } from './task-list-renderer/task-list-renderer.component';
+import { TaskViewerComponent } from './task-viewer/task-viewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskListViewerComponent,
-    TaskListRendererComponent
+    TaskListRendererComponent,
+    TaskViewerComponent,
   ],
   imports: [
     BrowserModule,

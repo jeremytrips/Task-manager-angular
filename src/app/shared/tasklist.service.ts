@@ -9,7 +9,6 @@ export class TaskList {
   Title: string;
   DateCreated: Date;
   DateModified: Date;
-  Tasks: Array<Task>;
   Description: String;
 };
 
@@ -26,6 +25,7 @@ export class Task {
 export class TasklistService {
   // REST API
   endpoint = 'http://127.0.0.1:8000';
+  taskLists: Array<TaskList> = null;
 
   constructor(private httpClient: HttpClient) { }
     httpHeader = {
@@ -36,6 +36,14 @@ export class TasklistService {
 
   getTaskLists(): Observable<TaskList>{
     return this.httpClient.get<TaskList>(this.endpoint+"/api/journal")
+    .pipe(
+      retry(1),
+      catchError(this.processError)
+    );
+  }
+
+  getTasksOfaList(id: number): Observable<Array<Task>>{
+    return this.httpClient.get<Array<Task>>(this.endpoint+`/api/tasks/${id}`)
     .pipe(
       retry(1),
       catchError(this.processError)

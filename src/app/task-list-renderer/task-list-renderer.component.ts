@@ -19,7 +19,7 @@ export class TaskListRendererComponent implements OnInit {
 
   @HostListener("click") onClick(){
     // this.router.navigateByUrl("/task")
-    this.router.navigate([`../task`]);
+    this.router.navigate([`../journal/${this.tasklist.id}`]);
   }
 
   ngOnInit(): void {
