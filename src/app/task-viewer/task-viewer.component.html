@@ -1,1 +1,7 @@
-<p>task-viewer works!</p>
+<div>
+<h2 class="mb-3 text-center">{{tasklist.Title}}</h2>
+<p>{{tasklist.Description}}</p>
+<p>{{tasklist.DateCreated}}</p>
+<p>{{tasklist.DateModified}}</p>
+<app-task-renderer *ngFor="let task of tasks; let i = index" [index]="i" [task]="task"></app-task-renderer>
+</div>

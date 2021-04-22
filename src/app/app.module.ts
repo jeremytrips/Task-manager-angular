@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { TaskListViewerComponent } from './task-list-viewer/task-list-viewer.component';
 import { TaskListRendererComponent } from './task-list-renderer/task-list-renderer.component';
 import { TaskViewerComponent } from './task-viewer/task-viewer.component';
+import { TaskRendererComponent } from './task-renderer/task-renderer.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { TaskViewerComponent } from './task-viewer/task-viewer.component';
     TaskListViewerComponent,
     TaskListRendererComponent,
     TaskViewerComponent,
+    TaskRendererComponent,
   ],
   imports: [
     BrowserModule,

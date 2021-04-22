@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Task, TaskList, TasklistService } from '../shared/tasklist.service';
-import { TaskListViewerComponent } from '../task-list-viewer/task-list-viewer.component';
 
 @Component({
   selector: 'app-task-viewer',
@@ -23,15 +22,16 @@ export class TaskViewerComponent implements OnInit {
   constructor(private route: ActivatedRoute, public tasklistService: TasklistService) {
   }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     this.route.params.subscribe((params)=>{
-      this.id = params["id"]
-      this.fetchTaskLists()
+      this.id = params["id"]      
+      this.fetchTasks()
     });
   }
 
-  fetchTaskLists(){
+  fetchTasks(){
     return this.tasklistService.getTasksOfaList(this.id).subscribe((res: {})=>{
+      console.log(res);
       this.tasks = <Array<Task>> res;      
     });
   }
