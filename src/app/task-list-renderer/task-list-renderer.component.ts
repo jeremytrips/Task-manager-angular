@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskList, TasklistService } from '../shared/tasklist.service';
 
@@ -12,13 +12,18 @@ export class TaskListRendererComponent implements OnInit {
   @Input() tasklist: TaskList;
   @Input() index: number;
 
+  @Output() deleteEvent = new EventEmitter<string>();
+
 
   constructor(public tasklistService: TasklistService, private router: Router, private route: ActivatedRoute) {
     
   }
 
-  @HostListener("click") onClick(){
-    // this.router.navigateByUrl("/task")
+  onDelete() {
+    this.deleteEvent.emit(this.tasklist.id);
+  }
+
+  navigate(){
     this.router.navigate([`../journal/${this.tasklist.id}`]);
   }
 

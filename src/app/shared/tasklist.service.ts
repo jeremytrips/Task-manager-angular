@@ -13,7 +13,7 @@ export class TaskList {
 };
 
 export class Task {
-  id: string;
+  id: number;
   Description: string;
   DateCreated: Date;
   IsDone: boolean;
@@ -42,6 +42,14 @@ export class TasklistService {
     );
   }
 
+    deleteTaskList(id: string): Observable<void>{
+    return this.httpClient.delete<void>(this.endpoint+`/api/journal/delete/${id}`)
+    .pipe(
+      retry(1),
+      catchError(this.processError)
+    );
+  }
+
   getTasksOfaList(id: number): Observable<Array<Task>>{
     return this.httpClient.get<Array<Task>>(this.endpoint+`/api/tasks/${id}`)
     .pipe(
@@ -58,6 +66,19 @@ export class TasklistService {
       retry(1),
       catchError(this.processError)
     );
+  }
+
+  setResetTask(id: number){
+    return this.httpClient.put(
+      `${this.endpoint}/api/task/set`,
+      {
+        "id": id
+      }
+    )
+    .pipe(
+      retry(1),
+      catchError(this.processError)
+    )
   }
 
   processError(err) {

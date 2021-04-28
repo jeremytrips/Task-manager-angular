@@ -1,6 +1,9 @@
 <div class="container" [ngStyle]="index%2?{'background-color': '#2196f39c'} : {'background-color': '#2196F3'}">
-    <p style="flex: 1;">{{tasklist.Title}}</p>
-    <p style="flex: 3;">{{tasklist.Description}}</p>
-    <p style="flex: 1;">{{tasklist.DateCreated | date}}</p>
-    <p style="flex: 1;">{{tasklist.DateModified | date}}</p>
+    <div class="containing" (click)="navigate()">
+        <p style="flex: 1;">{{tasklist.Title}}</p>
+        <p style="flex: 3;">{{tasklist.Description}}</p>
+        <p style="flex: 1;">{{tasklist.DateCreated | date}}</p>
+        <p style="flex: 1;">{{tasklist.DateModified | date}}</p>
+    </div>
+    <button type="button" class="btn btn-outline-danger" (click)="onDelete()">Delete</button>
 </div>
