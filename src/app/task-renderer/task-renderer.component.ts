@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Task } from '../shared/tasklist.service';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Task, TasklistService } from '../shared/tasklist.service';
 
 @Component({
   selector: 'app-task-renderer',
@@ -11,9 +11,17 @@ export class TaskRendererComponent implements OnInit {
   @Input() task: Task;
   @Input() index: number;
 
-  constructor() {
-   
-   }
+  constructor(public tasklistService: TasklistService) {
+  }
+  
+  // todo fix the error on put method
+  @HostListener("click") onClick(){
+    this.tasklistService.setResetTask(this.task.id)
+    .subscribe((res)=>{
+      console.log("ok");
+      
+    });
+  }
 
   ngOnInit(): void {
   }

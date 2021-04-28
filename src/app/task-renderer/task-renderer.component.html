@@ -1,5 +1,7 @@
 <div class="container" [ngStyle]="index%2?{'background-color': '#2196f39c'} : {'background-color': '#2196F3'}">
     <p style="flex: 3;">{{task.Description}}</p>
     <p style="flex: 1;">{{task.DateCreated | date}}</p>
-    <p style="flex: 1;">{{task.IsDone}}</p>
-</div>
+    <p style="flex: 1;">{{task.IsDone?"yes": "no"}}</p>
+    <button type="button"   ><i class="fab fa-android" aria-hidden="true"></i></button>
+    <button type="button" class="btn btn-outline-danger">Delete</button>
+</div> 
