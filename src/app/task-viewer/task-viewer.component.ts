@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Task, TaskList, TasklistService } from '../shared/tasklist.service';
 
@@ -24,14 +24,13 @@ export class TaskViewerComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params)=>{
-      this.id = params["id"]      
+      this.id = params["id"] 
       this.fetchTasks()
     });
   }
 
   fetchTasks(){
     return this.tasklistService.getTasksOfaList(this.id).subscribe((res: {})=>{
-      console.log(res);
       this.tasks = <Array<Task>> res;      
     });
   }
