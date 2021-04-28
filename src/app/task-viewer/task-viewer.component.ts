@@ -29,6 +29,12 @@ export class TaskViewerComponent implements OnInit {
     });
   }
 
+  onSubmit(post){
+    this.tasklistService.createTask(this.id, post.value.Description).subscribe((res)=>{      
+      this.tasks.push(<Task>res);
+    })
+  }
+
   fetchTasks(){
     return this.tasklistService.getTasksOfaList(this.id).subscribe((res: {})=>{
       this.tasks = <Array<Task>> res;      
