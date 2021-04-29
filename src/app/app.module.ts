@@ -11,6 +11,7 @@ import { TaskListViewerComponent } from './task-list-viewer/task-list-viewer.com
 import { TaskListRendererComponent } from './task-list-renderer/task-list-renderer.component';
 import { TaskViewerComponent } from './task-viewer/task-viewer.component';
 import { TaskRendererComponent } from './task-renderer/task-renderer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TaskRendererComponent } from './task-renderer/task-renderer.component';
     TaskListRendererComponent,
     TaskViewerComponent,
     TaskRendererComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

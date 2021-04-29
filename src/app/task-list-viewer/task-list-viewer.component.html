@@ -1,32 +1,12 @@
-<div class="col-xs-12">
-    <!-- <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">#Id</th>
-          <th scope="col">Title</th>
-          <th scope="col">date created</th>
-          <th scope="col">date modified</th>
-          <th scope="col">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let tasklist of TaskLists"  style="cursor:pointer;"> -->
-          <h2 class="mb-3 text-center">Task lists</h2>
-          <app-task-list-renderer  (deleteEvent)="onDelete($event)" *ngFor="let tasklist of TaskLists; let i = index" [index]="i" [tasklist]="tasklist"></app-task-list-renderer>
-          <!-- <td>{{tasklist.id}}</td>
-          <td>{{tasklist.Title}}</td>
-          <td>{{tasklist.DateCreated | date}}</td>
-          <td>{{tasklist.DateModified | date}}</td>
-          <td>{{tasklist.Description}}</td> -->
-        <!-- </tr>
-      </tbody>
-    </table> -->
-    <div>
-      <h3>Nouvelle liste</h3>
-      <form #tasklistPost="ngForm" (ngSubmit)="onSubmit(tasklistPost)">
-        <input type="text" name="Title" required ngModel>
-        <input type="text" name="Description" required ngModel>
-        <button type="submit">Créer</button>
-      </form>
-    </div>  
-  </div>
+<div>
+  <h2 class="mb-3 text-center">Task lists</h2>
+  <app-task-list-renderer  (deleteEvent)="onDelete($event)" *ngFor="let tasklist of TaskLists; let i = index" [index]="i" [tasklist]="tasklist"></app-task-list-renderer>
+  <div>
+    <h3>Nouvelle liste</h3>
+    <form #tasklistPost="ngForm" (ngSubmit)="onSubmit(tasklistPost)">
+      <input type="text" name="Title" required ngModel>
+      <input type="text" name="Description" required ngModel>
+      <button type="submit">Créer</button>
+    </form>
+  </div>  
+</div>
