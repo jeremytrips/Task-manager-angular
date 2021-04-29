@@ -76,8 +76,8 @@ export class TasklistService {
     );
   }
 
-  createTask(id: number, desc: string): Observable<any>{
-    return this.httpClient.post(`${this.endpoint}/api/task/create/${id}`,{
+  createTask(id: number, desc: string): Observable<Task>{
+    return this.httpClient.post<Task>(`${this.endpoint}/api/task/create/${id}`,{
       Description: desc,
     })
     .pipe(
@@ -96,6 +96,14 @@ export class TasklistService {
     .pipe(
       retry(1),
       catchError(this.processError)
+    )
+  }
+
+  updateTask(id: number, desc: string): Observable<Task>{
+    return this.httpClient.put<Task>(`${this.endpoint}/api/task/update`,{
+        "id": id,
+        "description": desc
+      }
     )
   }
 
