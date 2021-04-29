@@ -12,12 +12,13 @@ export class TaskViewerComponent implements OnInit {
   id: number = null;
   tasks: Array<Task> = null;
   tasklist: TaskList = {
-    id: "29",
-    Title: "Car",
-    DateCreated: new Date("2021-03-06T13:28:44+00:00"),
-    DateModified: new Date("2021-03-09T12:00:29+00:00"),
-    Description: "Restoration of a mgb gt 1979"
-  };
+    id: "",
+    Title: "",
+    DateCreated: new Date(),
+    DateModified: new Date(),
+    Description: ""
+  }
+
 
   constructor(private route: ActivatedRoute, public tasklistService: TasklistService) {
   }
@@ -25,6 +26,7 @@ export class TaskViewerComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params)=>{
       this.id = params["id"] 
+      this.fetchTaskListData();
       this.fetchTasks()
     });
   }
@@ -46,6 +48,12 @@ export class TaskViewerComponent implements OnInit {
   onSubmit(post){
     this.tasklistService.createTask(this.id, post.value.Description).subscribe((res)=>{      
       this.tasks.push(<Task>res);
+    })
+  }
+
+  fetchTaskListData(){
+    return this.tasklistService.getDataOfATaskList(this.id).subscribe((res: TaskList)=>{
+      this.tasklist = res
     })
   }
 

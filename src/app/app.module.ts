@@ -12,6 +12,7 @@ import { TaskListRendererComponent } from './task-list-renderer/task-list-render
 import { TaskViewerComponent } from './task-viewer/task-viewer.component';
 import { TaskRendererComponent } from './task-renderer/task-renderer.component';
 import { HeaderComponent } from './header/header.component';
+import { QueryComponent } from './query/query.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HeaderComponent } from './header/header.component';
     TaskViewerComponent,
     TaskRendererComponent,
     HeaderComponent,
+    QueryComponent,
   ],
   imports: [
     BrowserModule,

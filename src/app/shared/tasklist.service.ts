@@ -19,6 +19,11 @@ export class Task {
   IsDone: boolean;
 };
 
+export class QueryStruct{
+  taskLists: Array<TaskList>;
+  tasks: Array<Task>;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -56,6 +61,14 @@ export class TasklistService {
       retry(1),
       catchError(this.processError)
     );
+  }
+
+  getDataOfATaskList(id: number): Observable<TaskList>{
+    return this.httpClient.get<TaskList>(`${this.endpoint}/api/task/get/${id}`)
+    .pipe(
+      retry(1),
+      catchError(this.processError)
+    )
   }
 
   getTasksOfaList(id: number): Observable<Array<Task>>{
@@ -104,6 +117,14 @@ export class TasklistService {
         "id": id,
         "description": desc
       }
+    )
+  }
+
+  query(toQuery: string): Observable<QueryStruct>{
+    return this.httpClient.get<QueryStruct>(`${this.endpoint}/api/q/${toQuery}`)
+    .pipe(
+      retry(1),
+      catchError(this.processError)
     )
   }
 
