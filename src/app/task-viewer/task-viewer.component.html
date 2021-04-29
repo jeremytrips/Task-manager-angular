@@ -3,7 +3,7 @@
 <p>{{tasklist.Description}}</p>
 <p>{{tasklist.DateCreated}}</p>
 <p>{{tasklist.DateModified}}</p>
-<app-task-renderer *ngFor="let task of tasks; let i = index" [index]="i" [task]="task"></app-task-renderer>
+<app-task-renderer *ngFor="let task of tasks; let i = index" [index]="i" [task]="task" (deleteEvent)="onDelete($event)"></app-task-renderer>
 <div>
     <h3>Nouvelle Tâche</h3>
     <form #taskPost="ngForm" (ngSubmit)="onSubmit(taskPost)">

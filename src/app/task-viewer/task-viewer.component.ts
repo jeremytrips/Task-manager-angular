@@ -29,6 +29,20 @@ export class TaskViewerComponent implements OnInit {
     });
   }
 
+  onDelete(event){
+    this.tasklistService.deleteTask(event)
+    .subscribe(()=>{
+      // this.TaskLists.
+      for (let i = 0; i < this.tasks.length; i++) {
+        const element = this.tasks[i];
+        if (element.id == event){
+          this.tasks.splice(i, 1);
+          return;
+        }
+      };
+    });
+  }
+
   onSubmit(post){
     this.tasklistService.createTask(this.id, post.value.Description).subscribe((res)=>{      
       this.tasks.push(<Task>res);

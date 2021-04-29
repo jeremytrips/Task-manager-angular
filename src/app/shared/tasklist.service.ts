@@ -50,6 +50,14 @@ export class TasklistService {
     );
   }
 
+  deleteTask(id: number): Observable<void>{
+    return this.httpClient.delete<void>(this.endpoint+`/api/task/delete/${id}`)
+    .pipe(
+      retry(1),
+      catchError(this.processError)
+    );
+  }
+
   getTasksOfaList(id: number): Observable<Array<Task>>{
     return this.httpClient.get<Array<Task>>(this.endpoint+`/api/tasks/${id}`)
     .pipe(

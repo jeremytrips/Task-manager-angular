@@ -3,5 +3,5 @@
     <p style="flex: 1;">{{task.DateCreated | date}}</p>
     <p style="flex: 1;">{{task.IsDone?"yes": "no"}}</p>
     <button type="button"   ><i class="fab fa-android" aria-hidden="true"></i></button>
-    <button type="button" class="btn btn-outline-danger">Delete</button>
+    <button type="button" class="btn btn-outline-danger" (click)="onDelete()">Delete</button>
 </div> 
