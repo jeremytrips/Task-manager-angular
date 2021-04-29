@@ -19,6 +19,12 @@ export class TaskRendererComponent implements OnInit {
     this.deleteEvent.emit(this.task.id);
   }
 
+  SetResetTask(){
+    this.tasklistService.setResetTask(this.task.id).subscribe((res)=>{
+      this.task.IsDone = res;
+    });
+  }
+
   ngOnInit(): void {
   }
 

@@ -86,7 +86,7 @@ export class TasklistService {
     );
   }
  
-  setResetTask(id: number){
+  setResetTask(id: number): Observable<any>{
     return this.httpClient.put(
       `${this.endpoint}/api/task/set`,
       {
