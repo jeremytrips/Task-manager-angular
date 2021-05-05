@@ -14,8 +14,8 @@ export class TaskViewerComponent implements OnInit {
   tasklist: TaskList = {
     id: "",
     Title: "",
-    DateCreated: new Date(),
-    DateModified: new Date(),
+    DateCreated: null,
+    DateModified: null,
     Description: ""
   }
 

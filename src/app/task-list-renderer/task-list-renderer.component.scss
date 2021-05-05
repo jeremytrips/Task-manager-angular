@@ -4,16 +4,17 @@
     cursor: pointer; 
     border-left: solid #2196F3;
     border-width: 0 6px;
-    padding: 5px;
-    vertical-align:middle;
+    height: 80px;
+    vertical-align: middle;
+    width: 100%;
+    padding: 10px;
 }
 
 .containing {
     display: flex;
+    width:  100%;
     flex-direction:row;
     cursor: pointer; 
-    // border-left: solid #2196F3;
-    // border-width: 0 6px;
     padding: 5px;
     vertical-align:middle;
 }

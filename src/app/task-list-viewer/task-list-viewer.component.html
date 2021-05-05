@@ -1,6 +1,6 @@
 <div>
   <h2 class="mb-3 text-center">Task lists</h2>
-  <app-task-list-renderer (deleteEvent)="onDelete($event)" *ngFor="let tasklist of TaskLists; let i = index" [index]="i" [tasklist]="tasklist"></app-task-list-renderer>
+  <app-task-list-renderer (deleteEvent)="onDelete($event)" *ngFor="let tasklist of TaskLists; let i = index" [index]="i" [tasklist]="tasklist" style="width:100%"></app-task-list-renderer>
   <div>
     <h3>Nouvelle liste</h3>
     <form #tasklistPost="ngForm" (ngSubmit)="onSubmit(tasklistPost)">
